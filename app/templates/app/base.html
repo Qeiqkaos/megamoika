@@ -1,0 +1,90 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="shortcut icon" href="{% static 'app/favicon.png' %}" type="image">
+  <link rel="icon" href="{% static 'app/favicon.png' %}" type="image">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}">
+  <title>МЕГАМОЙКА</title>
+  <style type="text/css">
+    .navbar {
+      min-height: 100px;
+      font-size: 25px;
+      background: linear-gradient(to right, rgb(183, 28, 28), rgb(244, 67, 54));
+    }
+    .navbar-brand {
+      font-size: 25px;
+    }
+    .nav-item{
+      font-family: "Gilroy-medium", sans-serif;
+    }
+    #logo{
+      width: 25%;
+    }
+    .dropdown-menu-left {
+      right: auto;
+      left: 0;
+    }
+    .navbar-custom {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-nav {
+      margin-left: auto;
+    }
+    .navbar-toggler{
+      margin-left: auto;
+    }
+    .navbar-light .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+ }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-custom">
+      <a class="navbar-brand ml-auto" href="/"><img id="logo" src="{% static 'app/icon.png' %}"/></a>
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white " href="/service">Услуги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="#">Отзывы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="#">Контакты</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+        {% endblock %}
+  <footer class="page-footer font-small blue">
+    <div class="container text-center py-3">
+      <a href="https://www.packtpub.com">О компании</a>
+      <a href="/service">Услуги</a>
+      <a href="https://www.packtpub.com">Отзывы</a>
+      <a href="https://www.packtpub.com">Контакты</a>
+      <p>© 2023 ИП Субанов В. Б.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
