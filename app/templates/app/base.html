@@ -45,6 +45,35 @@
     .navbar-light .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
  }
+ 
+      
+ #social .wrapper_social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#social a {
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $accent;
+  background-color: #fff;
+  border-radius:50%;
+}
+
+#social a:last-child {
+  margin-right: 0;
+}
+
+#social a:hover {
+  background-color: $accent;
+  color: #fff;
+}
+
   </style>
 </head>
 <body>
@@ -72,6 +101,18 @@
 
   {% block content %}
         {% endblock %}
+  <section id="socials">
+    <div class="container">
+      <div class = "wrapper_socials">
+        <a href="#" target="_blank">
+          <i class="fab fa-vk">a</i>
+        </a>
+        <a href="#" target="_blank">
+          <i class="fab fa-instagram">b</i>
+        </a>
+      </div>
+    </div>
+  </section>
   <footer class="page-footer font-small blue">
     <div class="container text-center py-3">
       <a href="https://www.packtpub.com">О компании</a>
