@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="{% static 'app/favicon.png' %}" type="image">
   <link rel="icon" href="{% static 'app/favicon.png' %}" type="image">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}">
   <title>МЕГАМОЙКА</title>
   <style type="text/css">
@@ -45,33 +46,65 @@
     .navbar-light .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
  }
- 
-      
- #social .wrapper_social {
+ #socials .wrapper {
+  margin: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#social a {
-  font-size: 25px;
-  width: 60px;
+ .wrapper .button{
+  display: inline-block;
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid $accent;
-  background-color: #fff;
-  border-radius:50%;
+  width: 60px;
+  float: left;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-out;
 }
-
-#social a:last-child {
-  margin-right: 0;
+.wrapper .button:hover{
+  width: 200px;
 }
-
-#social a:hover {
-  background-color: $accent;
+.wrapper .button .icon{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1):hover .icon{
+  background: #E1306C;
+}
+.wrapper .button:nth-child(2):hover .icon{
+  background: #4267B2;
+}
+.wrapper .button .icon i{
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:hover .icon i{
   color: #fff;
+}
+.wrapper .button span{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1) span{
+  color: #E1306C;
+}
+.wrapper .button:nth-child(2) span{
+  color: #4267B2;
 }
 
   </style>
@@ -93,7 +126,7 @@
           <a class="nav-link text-white " href="#">Отзывы</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="#">Контакты</a>
+          <a class="nav-link text-white " href="/contact">Контакты</a>
         </li>
       </ul>
     </div>
@@ -103,13 +136,19 @@
         {% endblock %}
   <section id="socials">
     <div class="container">
-      <div class = "wrapper_socials">
-        <a href="#" target="_blank">
-          <i class="fab fa-vk">a</i>
-        </a>
-        <a href="#" target="_blank">
-          <i class="fab fa-instagram">b</i>
-        </a>
+      <div class="wrapper">
+        <div class="button">
+           <div class="icon">
+              <i class="fab fa-instagram"></i>
+           </div>
+           <span>Инстаграм</span>
+        </div>
+        <div class="button">
+           <div class="icon">
+              <i class="fab fa-vk"></i>
+           </div>
+           <span>ВК</span>
+        </div>
       </div>
     </div>
   </section>
@@ -117,8 +156,8 @@
     <div class="container text-center py-3">
       <a href="https://www.packtpub.com">О компании</a>
       <a href="/service">Услуги</a>
-      <a href="https://www.packtpub.com">Отзывы</a>
-      <a href="https://www.packtpub.com">Контакты</a>
+      <a href="#">Отзывы</a>
+      <a href="/contact">Контакты</a>
       <p>© 2023 ИП Субанов В. Б.</p>
     </div>
   </footer>
@@ -126,6 +165,7 @@
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 </body>
 </html>
