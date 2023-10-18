@@ -2,17 +2,6 @@
 
 {% block content %}
 {% load static %}
-<script>
-  window.onload = function() {
-    // Wait for the entire page, including the iframe, to be fully loaded
-    var iframe = document.getElementById('map_996592972');
-    var loadingDiv = document.getElementById('loading_div'); // Corrected the selector
-  
-    iframe.onload = function() {
-      loadingDiv.style.display = 'none'; // Hide the loading element
-    };
-  };
-  </script>
 <section id="contact_page">
 <div class="container">
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -61,7 +50,6 @@
 </section>
 <section id="location">
     <div class="container">
-      <div id="loading_div">Идет Загрузка Карты</div>
         <div class="wrapper_map">
             <iframe 
             id="map_996592972" 
@@ -118,6 +106,7 @@
         align-items: center;
         justify-content: center;
         margin: 0 auto;
+        margin-bottom: 10px;
     }
     
     #blocks .b_item .icons > img {
@@ -156,13 +145,10 @@
         margin-bottom:10px;
       }
       
-      #map .wrapper_map {
+      #map_996592972 {
         border-radius: 10px;
         box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
         overflow: hidden;
       }
-      #loading_div{
-        margin:0 auto;
-    }
 </style>
 {% endblock %}

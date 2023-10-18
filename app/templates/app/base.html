@@ -15,6 +15,9 @@
   <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}">
   <title>МЕГАМОЙКА</title>
   <style type="text/css">
+    h1,h2,h3,h4,a,p{
+      font-family: "Gilroy-regular", sans-serif;
+    }
     .navbar {
       min-height: 100px;
       font-size: 25px;
@@ -109,6 +112,18 @@
 .wrapper .button a:hover {
   text-decoration: none;
 }
+#footer{
+  background: linear-gradient(to right, rgb(244, 67, 54),rgb(183, 28, 28));
+}
+#footer .links{
+  text-decoration: underline;
+  color: white;
+  margin:10px;
+}
+#footer .Business{
+  color: white;
+  margin:10px;
+}
   </style>
 </head>
 <body>
@@ -156,15 +171,17 @@
       </div>
     </div>
   </section>
-  <footer class="page-footer font-small blue">
-    <div class="container text-center py-3">
-      <a href="https://www.packtpub.com">О компании</a>
-      <a href="/service">Услуги</a>
-      <a href="#">Отзывы</a>
-      <a href="/contact">Контакты</a>
-      <p>© 2023 ИП Субанов В. Б.</p>
-    </div>
-  </footer>
+  <section id="footer">
+    <footer class="page-footer font-small blue">
+      <div class="container text-center py-3">
+        <a class="links" href="/">О компании</a>
+        <a class="links" href="/service">Услуги</a>
+        <a class="links" href="#">Отзывы</a>
+        <a class="links" href="/contact">Контакты</a>
+        <p class="Business">© 2023 ИП Субанов В. Б.</p>
+      </div>
+    </footer>
+  </section>
 
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
