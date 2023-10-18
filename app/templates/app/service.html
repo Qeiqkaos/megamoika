@@ -1,15 +1,17 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
+<section id="service_page">
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Услуги</h1>
   <p class="lead">Мы оказываем широкий выбор услуг по мойке, химчистке, полировке автомобилей и нанесению защитных покрытий.</p>
 </div>
+<section>
 <div class="container">
     <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
-                <div class="card-header red-header">
+            <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
+                <div class="block card-header red-header">
                     <h4 class="my-0 font-weight-normal">Бесконтактная мойка</h4>
                 </div>
                 <div class="card-body">
@@ -23,8 +25,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card mb-4 box-shadow d-flex text-center flex-column" style="height: 100%;">
-                <div class="card-header red-header">
+            <div class="block card mb-4 box-shadow d-flex text-center flex-column" style="height: 100%;">
+                <div class="block card-header red-header">
                     <h4 class="my-0 font-weight-normal">Трёхфазная мойка</h4>
                 </div>
                 <div class="card-body">
@@ -38,8 +40,8 @@
             </div>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
-            <div class="card-header red-header">
+          <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
+            <div class="block card-header red-header">
                 <h4 class="my-0 font-weight-normal">Косплексная мойка</h4>
             </div>
                 <div class="card-body">
@@ -55,8 +57,8 @@
     </div>
     <div class="row mb-4">
         <div class="col-md-4">
-            <div class="card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-                <div class="card-header red-header">
+            <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
+                <div class="block card-header red-header">
                     <h4 class="my-0 font-weight-normal">Химчистка салона</h4>
                 </div>
                 <div class="card-body">
@@ -71,8 +73,8 @@
             </div>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-              <div class="card-header red-header">
+          <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
+              <div class="block card-header red-header">
                   <h4 class="my-0 font-weight-normal">Удаление Реагента</h4>
               </div>
               <div class="card-body">
@@ -86,8 +88,8 @@
           </div>
       </div>
       <div class="col-md-4">
-        <div class="card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-            <div class="card-header red-header">
+        <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
+            <div class="block card-header red-header">
                 <h4 class="my-0 font-weight-normal">Экспресс-мойка</h4>
             </div>
             <div class="card-body">
@@ -111,6 +113,29 @@
           background: linear-gradient(to right,rgb(245, 42, 27), rgb(222, 62, 62));
           color: white;
       }
+      #service_page {
+        padding-top: 0;
+        margin-top: -30px;
+      }
+      
+      #service_page h1,h2 {
+        margin-bottom: 20px;
+      }
+      #service_page h2{
+        font-size:24px;
+      }
+      
+      #service_page > p {
+        margin-bottom: 15px;
+      }
+      
+      #service_page p:last-child {
+        margin-bottom: 0;
+      }
+      .block {
+        border-radius: 20px;
+        box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    }
   </style>
 </div>
 {% endblock %}
