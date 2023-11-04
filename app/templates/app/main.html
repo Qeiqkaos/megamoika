@@ -22,6 +22,7 @@
     }
     #intro .text{
       text-align:center;
+      margin:30px;
     }
     #service_page {
       overflow:hidden;
@@ -39,18 +40,21 @@
     #service_page p:last-child {
       margin-bottom: 0;
     }
-    #service_page .cover{
-      overflow: hidden;
-      width: 800px;
-      height: 800px;
-      margin: 0 auto;
+    .custom-col {
+      padding: 5px;
     }
-    #service_page .cover .img_example{
+    #service_page .options .img_example {
       border-radius: 20px;
       box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
-      float: left;
-      width: 45%;
-      margin: 1.66%;
+      width: 90%;
+      height: 90%; 
+    }
+    #service_page .button{
+      text-align: center;
+      margin-bottom:45px;
+      box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+      color: linear-gradient(to right, rgb(244, 67, 54),rgb(183, 28, 28));
+
     }
     #contact_page{
     }
@@ -166,7 +170,7 @@
             <div class="text">
                 <h1 class="display-3 font-weight-bold">Автомойка с полным циклом услуг</h1>
                 <p class="lead">Автомойка 24/7</p>
-                <a href="contact/" class="btn btn-danger btn-lg">Связаться</a>
+                <a href="contact/" class="custom-button btn btn-danger btn-lg">Связаться</a>
             </div>
         </div>
     </div>
@@ -178,15 +182,27 @@
     <p class="text-muted lead">Мы оказываем широкий выбор услуг по мойке, химчистке, полировке автомобилей и нанесению защитных покрытий.</p>
   </div>
   <div class="options">
-    <div class="cover">
-              <img src="{% static 'app/nocontact.jpg' %}" alt="Example of no contact car wash" class="img_example">
-              <img src="{% static 'app/polirofka.jpg' %}" alt="Example of polirofka car wash" class="img_example">
-              <img src="{% static 'app/three.jpg' %}" alt="Example of three-phase car wash" class="img_example">
-              <img src="{% static 'app/him.jpg' %}" alt="Example of chemistry car wash" class="img_example">
+    <div class="container text-center">
+      <div class="row ">
+        <div class="col-md-6 custom-col">
+          <img src="{% static 'app/no_contact.jpg' %}" alt="Example of no contact car wash" class="img_example">
+        </div>
+        <div class="col-md-6 custom-col">
+              <img src="{% static 'app/poli.jpg' %}" alt="Example of polirofka car wash" class="img_example">
+            </div>
+        <div class="col-md-6 custom-col">
+          <img src="{% static 'app/threestep.jpg' %}" alt="Example of three-phase car wash" class="img_example">
+        </div>
+        <div class="col-md-6 custom-col">
+          <img src="{% static 'app/himi.jpg' %}" alt="Example of chemistry car wash" class="img_example"></div>
+        </div>
+        <div class="col-md-12">
+          <div class="button">
+            <a href="service/" class="btn btn-danger btn-lg btn-block">Услуги</a>
+          </div>
+        </div>
     </div>
   </div>
-  <div class="button">
-  <a href="service/" class="btn btn-danger btn-lg">Услуги</a></div>
 </section>
 
 <section id="contact_page">
