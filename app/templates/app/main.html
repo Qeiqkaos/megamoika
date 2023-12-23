@@ -84,6 +84,27 @@
       width: 35px;
       height: 35px;
   }
+  html{
+    scroll-behavior: smooth;
+  }
+  #intro{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #service_page{
+    height: 100vh;
+  }
+  #contact_page{
+    height: 100vh;  
+  }
+  #contact_page .blocks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
     #socials{
       background-color:white;
     }
@@ -160,45 +181,45 @@
       margin:10px;
     }
   </style>
-<section id="intro">
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 p-0">
-            <img src="{% static 'app/examplecarwash.jpg' %}" alt="Example of car wash" class="img-fluid" style="height: 100vh; width: 100%;">
-        </div>
-        <div class="col-md-5 d-flex align-items-center pl-4 pr-4">
-            <div class="text">
-                <h1 class="display-3 font-weight-bold">Автомойка с полным циклом услуг</h1>
-                <p class="lead">Автомойка 24/7</p>
-                <a href="contact/" class="custom-button btn btn-danger btn-lg">Связаться</a>
+  <section id="intro">
+    <div class="container-fluid">
+      <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-center ">
+              <h1 class="display-3 font-weight-bold text-center">МЕГАЙМОЙКА</h1>
             </div>
-        </div>
+            <div class="col-12 d-flex align-items-center justify-content-center ">
+              <p class="lead text-center">Автомойка с полным циклом услуг 24/7</p>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center ">
+              <a href="#service_page"><button type="button" class="btn btn-dark">Начнём?</button><a/>
+            </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
 <section id="service_page">
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <div class="pricing-header py-3 mx-auto text-center">
     <h1 class="text-white display-4">Что мы можем предложить?</h1>
-    <p class="text-muted lead">Мы оказываем широкий выбор услуг по мойке, химчистке, полировке автомобилей и нанесению защитных покрытий.</p>
   </div>
   <div class="options">
     <div class="container text-center">
       <div class="row ">
-        <div class="col-md-6 custom-col">
+        <div class="col-6 custom-col">
           <img src="{% static 'app/no_contact.jpg' %}" alt="Example of no contact car wash" class="img_example">
         </div>
-        <div class="col-md-6 custom-col">
+        <div class="col-6 custom-col">
               <img src="{% static 'app/poli.jpg' %}" alt="Example of polirofka car wash" class="img_example">
             </div>
-        <div class="col-md-6 custom-col">
+        <div class="col-6 custom-col">
           <img src="{% static 'app/threestep.jpg' %}" alt="Example of three-phase car wash" class="img_example">
         </div>
-        <div class="col-md-6 custom-col">
+        <div class="col-6 custom-col">
           <img src="{% static 'app/himi.jpg' %}" alt="Example of chemistry car wash" class="img_example"></div>
         </div>
-        <div class="col-md-12">
-          <div class="button">
-            <a href="service/" class="btn btn-danger btn-lg btn-block">Услуги</a>
+        <div class="col-12">
+          <div class="btn-group w-100" role="group" aria-label="Basic example">
+            <a href="service/" class="btn btn-danger w-50"><span>Услуги</span></a>
+            <a href="#contact_page" class="btn btn-light w-50"><span>Следующее</span></a>
           </div>
         </div>
     </div>
@@ -206,24 +227,23 @@
 </section>
 
 <section id="contact_page">
-  <div class="container">
+  <div class="container d-flex align-items-center justify-content-center">
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="text-black display-4">Что мы можем предложить?</h1>
+      <h1 class="text-black display-4">Наши преимущества</h1>
     </div>
     <div class="blocks">
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="b_item">
+        <div class="col-12 col-md-4 ">
+          <div class="b_item justify-content-center">
             <div class="icons">
               <img src="{% static 'app/icons/quality.png' %}" alt="Quality icon"/>
             </div>
-            <h2>Лучшие средства
-            </h2>
+            <h2>Лучшие средства</h2>
             <p>Мы используем только качественную автохимию.</p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="b_item">
+        <div class="col-12 col-md-4 ">
+          <div class="b_item justify-content-center">
             <div class="icons">
               <img src="{% static 'app/icons/Scope.png' %}" alt="Scope icon"/>
             </div>
@@ -231,8 +251,8 @@
             <p>Вы доверяете свой автомобиль в умелые руки.</p>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="b_item">
+        <div class="col-12 col-md-4 ">
+          <div class="b_item justify-content-center">
             <div class="icons">
               <img src="{% static 'app/icons/Wrench.png' %}" alt="Wrench icon"/>
             </div>
@@ -246,6 +266,7 @@
 </section>
 
 
+
 <section id="socials">
   <div class="container">
     <div class="wrapper">
@@ -253,7 +274,7 @@
          <div class="icon">
             <i class="fab fa-instagram"></i>
          </div>
-         <span>Инстаграм</span>
+         <a href="https://www.instagram.com/megamoyka03/"><span>Инстаграм</span></a>
       </div>
       <div class="button">
          <div class="icon">
