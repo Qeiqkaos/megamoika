@@ -93,11 +93,92 @@
     justify-content: center;
     align-items: center;
   }
-  #service_page{
-    height: 100vh;
+  #service_page {
+    min-height: 100vh;
   }
+  
+  .gallery-container {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .gallery {
+    --s: 250px;
+    --b: 0%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0px;
+    position: relative;
+  }
+  
+  .gallery input {
+    position: absolute;
+    border: 2px solid #000;
+    border-radius: 50%;
+    inset: calc(50% - var(--s) / 3);
+    cursor: pointer;
+    --g: linear-gradient(#000 0 0) no-repeat;
+    background: var(--g) 50% / var(--b, 0%) 3px, var(--g) 50% / 3px var(--b, 0%);
+    transition: 1.5s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .gallery > img {
+    margin: auto;
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    transform: scale(0.18);
+    filter: brightness(0);
+    pointer-events: none;
+    transform-origin: var(--x) var(--y);
+    transition: 1s calc((var(--i) - 1) * 0.1s);
+  }
+  
+  .gallery > img:nth-of-type(1) {
+    --i: 1;
+    --x: 100%;
+    --y: 100%;
+  }
+  
+  .gallery > img:nth-of-type(2) {
+    --i: 2;
+    --x: 0%;
+    --y: 100%;
+  }
+  
+  .gallery > img:nth-of-type(3) {
+    --i: 3;
+    --x: 100%;
+    --y: 0%;
+  }
+  
+  .gallery > img:nth-of-type(4) {
+    --i: 4;
+    --x: 0%;
+    --y: 0%;
+  }
+  
+  .gallery > input:checked ~ img {
+    transform: scale(1);
+    filter: brightness(1);
+    pointer-events: initial;
+  }
+  
+  .gallery > input:checked {
+    transform: translateY(calc(1.1 * var(--s))) scale(0.5) rotate(45deg);
+    --b: 70%;
+  }
+  
+  .btn-group {
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  
   #contact_page{
-    height: 100vh;  
+    min-height: 100vh;  
   }
   #contact_page .blocks{
     display: flex;
@@ -197,34 +278,29 @@
     </div>
   </section>
   
-<section id="service_page">
-  <div class="pricing-header py-3 mx-auto text-center">
-    <h1 class="text-white display-4">Что мы можем предложить?</h1>
-  </div>
-  <div class="options">
-    <div class="container text-center">
-      <div class="row ">
-        <div class="col-6 custom-col">
-          <img src="{% static 'app/no_contact.jpg' %}" alt="Example of no contact car wash" class="img_example">
-        </div>
-        <div class="col-6 custom-col">
-              <img src="{% static 'app/poli.jpg' %}" alt="Example of polirofka car wash" class="img_example">
-            </div>
-        <div class="col-6 custom-col">
-          <img src="{% static 'app/threestep.jpg' %}" alt="Example of three-phase car wash" class="img_example">
-        </div>
-        <div class="col-6 custom-col">
-          <img src="{% static 'app/himi.jpg' %}" alt="Example of chemistry car wash" class="img_example"></div>
-        </div>
-        <div class="col-12">
-          <div class="btn-group w-100" role="group" aria-label="Basic example">
-            <a href="service/" class="btn btn-danger w-50"><span>Услуги</span></a>
-            <a href="#contact_page" class="btn btn-light w-50"><span>Следующее</span></a>
+  <section id="service_page">
+    <div class="pricing-header py-3 mx-auto text-center">
+      <h1 class="text-white display-4">Что мы можем предложить?</h1>
+    </div>
+    <div class="options">
+      <div class="container">
+        <div class="gallery-container">
+          <div class="gallery">
+            <input type="checkbox" />
+            <img src="{% static 'app/no_contact.jpg' %}" alt="Example of no contact car wash" class="img_example">
+            <img src="{% static 'app/poli.jpg' %}" alt="Example of polirofka car wash" class="img_example">
+            <img src="{% static 'app/threestep.jpg' %}" alt="Example of three-phase car wash" class="img_example">
+            <img src="{% static 'app/himi.jpg' %}" alt="Example of chemistry car wash" class="img_example">
           </div>
         </div>
+        <div class="btn-group w-100" role="group" aria-label="Basic example">
+          <a href="service/" class="btn btn-danger w-50"><span>Услуги</span></a>
+          <a href="#contact_page" class="btn btn-light w-50"><span>Следующее</span></a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
 
 <section id="contact_page">
   <div class="container d-flex align-items-center justify-content-center">
