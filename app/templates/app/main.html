@@ -20,6 +20,35 @@
     h1,h2,h3,h4,a,p{
       font-family: "Gilroy-regular", sans-serif;
     }
+    #intro .start{
+      padding: 17px 40px;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 0;
+      background-color: black;
+      box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 15px;
+      color: white;
+      transition: all 0.5s ease;
+    }
+    #intro .start:hover {
+      letter-spacing: 3px;
+      background-color: rgb(183, 28, 28);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(183, 28, 28) 0px 7px 29px 0px;
+    }
+    
+    #intro .start:active {
+      letter-spacing: 3px;
+      outline: none;
+      background-color: rgb(183, 28, 28);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(183, 28, 28) 0px 0px 0px 0px;
+      transform: translateY(10px);
+      transition: 100ms;
+    }
     #intro .text{
       text-align:center;
       margin:30px;
@@ -96,84 +125,100 @@
   #service_page {
     min-height: 100vh;
   }
-  
-  .gallery-container {
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  .gallery {
-    --s: 250px;
-    --b: 0%;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 0px;
-    position: relative;
-  }
-  
-  .gallery input {
-    position: absolute;
-    border: 2px solid #000;
-    border-radius: 50%;
-    inset: calc(50% - var(--s) / 3);
-    cursor: pointer;
-    --g: linear-gradient(#000 0 0) no-repeat;
-    background: var(--g) 50% / var(--b, 0%) 3px, var(--g) 50% / 3px var(--b, 0%);
-    transition: 1.5s;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-  
-  .gallery > img {
-    margin: auto;
-    width: var(--s);
-    aspect-ratio: 1;
+  .gallery img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    transform: scale(0.18);
-    filter: brightness(0);
-    pointer-events: none;
-    transform-origin: var(--x) var(--y);
-    transition: 1s calc((var(--i) - 1) * 0.1s);
-  }
-  
-  .gallery > img:nth-of-type(1) {
-    --i: 1;
-    --x: 100%;
-    --y: 100%;
-  }
-  
-  .gallery > img:nth-of-type(2) {
-    --i: 2;
-    --x: 0%;
-    --y: 100%;
-  }
-  
-  .gallery > img:nth-of-type(3) {
-    --i: 3;
-    --x: 100%;
-    --y: 0%;
-  }
-  
-  .gallery > img:nth-of-type(4) {
-    --i: 4;
-    --x: 0%;
-    --y: 0%;
-  }
-  
-  .gallery > input:checked ~ img {
-    transform: scale(1);
-    filter: brightness(1);
-    pointer-events: initial;
-  }
-  
-  .gallery > input:checked {
-    transform: translateY(calc(1.1 * var(--s))) scale(0.5) rotate(45deg);
-    --b: 70%;
-  }
-  
+    transition: transform 1000ms;
+}
+
+.gallery ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, auto);
+    max-width: 100%;
+    width: 70rem;
+}
+
+.gallery figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery figure::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.5);
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity 300ms;
+}
+
+.gallery figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 600ms, transform 600ms;
+}
+
+.gallery a:hover figure::after {
+    opacity: 1;
+}
+
+.gallery a:hover figcaption {
+    opacity: 1;
+    transition: opacity 600ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .gallery figcaption {
+        transform: translate3d(0, 2rem, 0);
+    }
+    
+    .gallery figure::after {
+        border-radius: 50%;
+        opacity: 1;
+        transform: scale(0);
+        transition: transform 900ms;
+    }
+    
+    .gallery a:hover figure::after {
+        transform: scale(2.5);
+    }
+
+    .gallery a:hover figcaption {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 600ms 400ms, transform 600ms 400ms;
+    }
+
+    .gallery a:hover img {
+        transform: scale(1.2);
+    }
+}
   .btn-group {
-    margin-top: 20px; /* Adjust the margin as needed */
+    margin-top: 100px; /* Adjust the margin as needed */
   }
   
   
@@ -209,6 +254,12 @@
       box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
       transition: all 0.3s ease-out;
     }
+    #socials .wrapper a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease-out;
+  }
+  
     .wrapper .button:hover{
       width: 200px;
     }
@@ -272,7 +323,7 @@
               <p class="lead text-center">Автомойка с полным циклом услуг 24/7</p>
             </div>
             <div class="col-12 d-flex align-items-center justify-content-center ">
-              <a href="#service_page"><button type="button" class="btn btn-dark">Начнём?</button><a/>
+              <a href="#service_page"><button type="button" class="start">Начнём?</button></a>
             </div>
       </div>
     </div>
@@ -286,11 +337,39 @@
       <div class="container">
         <div class="gallery-container">
           <div class="gallery">
-            <input type="checkbox" />
-            <img src="{% static 'app/no_contact.jpg' %}" alt="Example of no contact car wash" class="img_example">
-            <img src="{% static 'app/poli.jpg' %}" alt="Example of polirofka car wash" class="img_example">
-            <img src="{% static 'app/threestep.jpg' %}" alt="Example of three-phase car wash" class="img_example">
-            <img src="{% static 'app/himi.jpg' %}" alt="Example of chemistry car wash" class="img_example">
+            <ul><li>
+              <a href="">
+                <figure>
+                  <img src="{% static 'app/no_contact.jpg' %}" alt='Volcano and lava field against a stormy sky'>
+                  <figcaption>Mountains and volcanos</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <figure>
+                  <img src="{% static 'app/poli.jpg' %}" alt='Guy on a bike ok a wooden bridge with a forest backdrop'>
+                  <figcaption>Adventure getaways</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <figure>
+                  <img src="{% static 'app/threestep.jpg' %}" alt='Person standing alone in a misty forest'>
+                  <figcaption>Forest escapes</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <figure>
+                  <img src="{% static 'app/himi.jpg' %}" alt='Person hiking on a trail through mountains while taking a photo with phone'>
+                  <figcaption>Hiking trails</figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
           </div>
         </div>
         <div class="btn-group w-100" role="group" aria-label="Basic example">
@@ -347,17 +426,17 @@
   <div class="container">
     <div class="wrapper">
       <div class="button">
+        <a href="https://www.instagram.com/megamoyka03/">
          <div class="icon">
             <i class="fab fa-instagram"></i>
-         </div>
-         <a href="https://www.instagram.com/megamoyka03/"><span>Инстаграм</span></a>
-      </div>
+         </div><span>Инстаграм</span>
+      </a></div>
       <div class="button">
+         <a href="https://vk.com/megamoyka03">
          <div class="icon">
             <i class="fab fa-vk"></i>
-         </div>
-         <a href="https://vk.com/megamoyka03"><span>ВК</span></a>
-      </div>
+         </div><span>ВК</span>
+      </a></div>
     </div>
   </div>
 </section>
