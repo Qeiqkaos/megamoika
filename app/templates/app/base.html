@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
 <head>
@@ -14,23 +14,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}">
   <title>МЕГАМОЙКА</title>
+  {% block styles %}
+  <!-- Additional styles for specific templates can be added here -->
+  {% endblock %}
   <style type="text/css">
     h1,h2,h3,h4,a,p{
       font-family: "Gilroy-regular", sans-serif;
     }
+    #main_nav{
+      position: -webkit-sticky;
+	    position: sticky;
+	    top: 0;
+	    z-index: 1;
+    }
     .navbar {
-      min-height: 100px;
-      font-size: 25px;
+      min-height:100px
+      font-size: 50px;
       background: linear-gradient(to right, rgb(183, 28, 28), rgb(244, 67, 54));
     }
     .navbar-brand {
       font-size: 25px;
     }
+    .nav-link{
+      font-size: 22px;
+    }
     .nav-item{
       font-family: "Gilroy-medium", sans-serif;
     }
     #logo{
-      width: 25%;
+      width: 20%;
     }
     .dropdown-menu-left {
       right: auto;
@@ -124,53 +136,57 @@
   color: white;
   margin:10px;
 }
-  </style>
+</style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-custom">
-      <a class="navbar-brand ml-auto" href="/"><img id="logo" src="{% static 'app/icon.png' %}"/></a>
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link text-white " href="/service">Услуги</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="#">Отзывы</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/contact">Контакты</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+  {% block nav %}
+  <section id="main_nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-custom">
+        <a class="navbar-brand ml-auto" href="/"><img id="logo" src="{% static 'app/icon.png' %}"/></a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link text-white " href="/service">Услуги</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="#">Отзывы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/contact">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+  {% endblock %}
+  
   {% block content %}
         {% endblock %}
-  <section id="socials">
-    <div class="container">
-      <div class="wrapper">
-        <div class="button">
-          <div class="icon">
-              <i class="fab fa-instagram"></i>
-           </div>
-           <a href="https://www.instagram.com/megamoyka03/"><span>Инстаграм</span></a>
-        </div>
-
-        <div class="button">
-          <div class="icon">
-              <i class="fab fa-vk"></i>
-           </div>
-           <a href="https://vk.com/megamoyka03"><span>ВК</span></a>
-        </div>
-
-      </div>
-    </div>
-  </section>
+        
+  {% block footer %}
+        <section id="socials">
+          <div class="container">
+            <div class="wrapper">
+              <div class="button">
+                <a href="https://www.instagram.com/megamoyka03/">
+                 <div class="icon">
+                    <i class="fab fa-instagram"></i>
+                 </div><span>Инстаграм</span>
+              </a></div>
+              <div class="button">
+                 <a href="https://vk.com/megamoyka03">
+                 <div class="icon">
+                    <i class="fab fa-vk"></i>
+                 </div><span>ВК</span>
+              </a></div>
+            </div>
+          </div>
+        </section>
   <section id="footer">
     <footer class="page-footer font-small blue">
       <div class="container text-center py-3">
@@ -182,6 +198,7 @@
       </div>
     </footer>
   </section>
+  {% endblock %}
 
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>

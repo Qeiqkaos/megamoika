@@ -1,0 +1,336 @@
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, a, p {
+    font-family: "Gilroy-regular", sans-serif;
+}
+
+.start {
+    padding: 17px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.button1 {
+    background-color: black;
+}
+
+.button2 {
+    background-color: white;
+    color: black;
+    margin: 10px;
+}
+
+.start:hover {
+    letter-spacing: 3px;
+    background-color: rgb(183, 28, 28);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(183, 28, 28) 0px 7px 29px 0px;
+}
+
+.start:active {
+    letter-spacing: 3px;
+    outline: none;
+    background-color: rgb(183, 28, 28);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(183, 28, 28) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+#intro {
+    position: relative;
+}
+
+#intro .text {
+    text-align: center;
+    margin: 30px;
+}
+
+#intro {
+    margin-top: -50px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#service_page {
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #212529;
+    padding-top: 50px;
+}
+
+#service_page > h1 {
+    margin-bottom: 20px;
+}
+
+#service_page > p {
+    margin-bottom: 15px;
+}
+
+#service_page p:last-child {
+    margin-bottom: 0;
+}
+
+.custom-col {
+    padding: 5px;
+}
+
+#service_page .options .img_example {
+    border-radius: 20px;
+    box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    width: 90%;
+    height: 90%;
+}
+
+#service_page .button {
+    text-align: center;
+    margin-bottom: 45px;
+    box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    color: linear-gradient(to right, rgb(244, 67, 54), rgb(183, 28, 28));
+}
+
+#contact_page {
+    min-height: 100vh;
+}
+
+#contact_page .b_item {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px 30px 45px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
+
+#contact_page .icons {
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    border: 2px solid red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#contact_page .b_item .icons > img {
+    width: 35px;
+    height: 35px;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 1000ms;
+}
+
+.gallery ul {
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, auto);
+    max-width: 100%;
+    width: 80rem;
+}
+
+.gallery figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery figure::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.5);
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity 300ms;
+}
+
+.gallery figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 600ms, transform 600ms;
+}
+
+.gallery a:hover figure::after {
+    opacity: 1;
+}
+
+.gallery a:hover figcaption {
+    opacity: 1;
+    transition: opacity 600ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .gallery figcaption {
+        transform: translate3d(0, 2rem, 0);
+    }
+
+    .gallery figure::after {
+        border-radius: 50%;
+        opacity: 1;
+        transform: scale(0);
+        transition: transform 900ms;
+    }
+
+    .gallery a:hover figure::after {
+        transform: scale(2.5);
+    }
+
+    .gallery a:hover figcaption {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 600ms 400ms, transform 600ms 400ms;
+    }
+
+    .gallery a:hover img {
+        transform: scale(1.2);
+    }
+}
+
+#contact_page {
+    min-height: 100vh;
+}
+
+#contact_page .blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact_page .b_item {
+    margin-bottom: -80px;
+}
+
+#socials {
+    background-color: white;
+}
+
+#socials .wrapper {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper .button {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    float: left;
+    margin: 0 5px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+}
+
+#socials .wrapper a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+}
+
+.wrapper .button:hover {
+    width: 200px;
+}
+
+.wrapper .button .icon {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1):hover .icon {
+    background: #E1306C;
+}
+
+.wrapper .button:nth-child(2):hover .icon {
+    background: #4267B2;
+}
+
+.wrapper .button .icon i {
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover .icon i {
+    color: #fff;
+}
+
+.wrapper .button span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1) span {
+    color: #E1306C;
+}
+
+.wrapper .button:nth-child(2) span {
+    color: #4267B2;
+}
+
+#footer {
+    background: linear-gradient(to right, rgb(244, 67, 54), rgb(183, 28, 28));
+}
+
+#footer .links {
+    text-decoration: underline;
+    color: white;
+    margin: 10px;
+}
+
+#footer .Business {
+    color: white;
+    margin: 10px;
+}
