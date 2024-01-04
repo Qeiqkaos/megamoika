@@ -2,140 +2,84 @@
 
 {% block content %}
 <section id="service_page">
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <h1 class="display-4">Услуги</h1>
-  <p class="lead">Мы оказываем широкий выбор услуг по мойке, химчистке, полировке автомобилей и нанесению защитных покрытий.</p>
-</div>
-<section>
-<div class="container">
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
-                <div class="block card-header red-header">
-                    <h4 class="my-0 font-weight-normal">Бесконтактная мойка</h4>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Услуги</h1>
+        <p class="lead">Мы оказываем широкий выбор услуг по мойке, химчистке, полировке автомобилей и нанесению защитных покрытий.</p>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            {% for service in services %}
+                <div class="col-md-4 my-1">
+                    <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
+                        <div class="block card-header red-header">
+                            <h4 class="my-0 font-weight-normal">{{ service.name }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">от {{ service.price }} руб</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                {% for description_item in service.get_description_list %} 
+                                    <li>{{ description_item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">от 520 руб</h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Нанесение моющего средства</li>
-                        <li>Смывка пены</li>
-                        <li>Восковой слой</li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
         </div>
-        <div class="col-md-4">
-            <div class="block card mb-4 box-shadow d-flex text-center flex-column" style="height: 100%;">
-                <div class="block card-header red-header">
-                    <h4 class="my-0 font-weight-normal">Трёхфазная мойка</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">от 800 руб <br><small class="text-muted">(экономия 120 руб)</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Блеск поверхности и яркость</li>
-                        <li>Удаление застарелых загрязнений</li>
-                        <li>Антистатические и гидрофобные свойства поверхности ЛКП</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-          <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
-            <div class="block card-header red-header">
-                <h4 class="my-0 font-weight-normal">Комплексная мойка</h4>
-            </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">от 900 руб <br><small class="text-muted">(экономия 110 руб)</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Чистка салона</li>
-                        <li>Бесконтактная мойка</li>
-                        <li>Очищение стекол</li>
-                    </ul>
-                </div>
-            </div>
+
+        <div class="px-3 py-3 pt-md-4 pb-md-4 mx-auto text-center">
+            <p class="lead mb-1" style="max-width: 600px;">
+                А также многие конкретные отдельные услуги по химчистке, мойке, уборке, чистке и многое другое.
+            </p>
         </div>
     </div>
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-                <div class="block card-header red-header">
-                    <h4 class="my-0 font-weight-normal">Химчистка салона</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">от 7000 руб</h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Чистка пола</li>
-                        <li>Чистка потолка</li>
-                        <li>Чистка кожаных элементов</li>
-                        <li>Чистка багажного отделения</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-          <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-              <div class="block card-header red-header">
-                  <h4 class="my-0 font-weight-normal">Удаление Реагента</h4>
-              </div>
-              <div class="card-body">
-                  <h1 class="card-title pricing-card-title">от 550 руб</h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                      <li>Мойка, обезжиривание и чистка кузова</li>
-                      <li>Сушка</li>
-                      <li>Нанесение консерванта</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-        <div class="block card mb-4 text-center box-shadow d-flex flex-column" style="height: 100%;">
-            <div class="block card-header red-header">
-                <h4 class="my-0 font-weight-normal">Экспресс-мойка</h4>
-            </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">от 200 руб</h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>Внешняя чистка водой под давлением</li>
-                    <li>Мойка кузова</li>
-                    <li>Сушка</li>
-                </ul>
-            </div>
-        </div>
-      </div>
-      <div class="px-3 py-3 pt-md-4 pb-md-4 mx-auto text-center">
-        <p class="lead mb-1" style="max-width: 600px;">
-            А также многие конкретные отдельные услуги по химчистке, мойке, уборке, чистке и многое другое.
-        </p>
-    </div>
-    </div>
+
     <style type="text/css">
-      .card-header.red-header {
-          background: linear-gradient(to right,rgb(245, 42, 27), rgb(222, 62, 62));
-          color: white;
-      }
-      #service_page {
-        padding-top: 0;
-        margin-top: -30px;
-      }
-      
-      #service_page h1,h2 {
-        margin-bottom: 20px;
-      }
-      #service_page h2{
-        font-size:24px;
-      }
-      
-      #service_page > p {
-        margin-bottom: 15px;
-      }
-      
-      #service_page p:last-child {
-        margin-bottom: 0;
-      }
-      .block {
-        border-radius: 20px;
-        box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
-    }
-  </style>
-</div>
+        #service_page {
+            padding-top: 0;
+            margin-top: -30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #service_page h1, #service_page h2 {
+            margin-bottom: 20px;
+        }
+        
+        #service_page h2 {
+            font-size: 24px;
+        }
+        
+        #service_page > p {
+            margin-bottom: 15px;
+        }
+        
+        #service_page p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .card {
+            margin: 10px; /* Adjust margin as needed */
+        }
+        
+        .card-header.red-header {
+            background: linear-gradient(to right, rgb(245, 42, 27), rgb(222, 62, 62));
+            color: white;
+        }
+        
+        .block {
+            border-radius: 20px;
+            box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+        }
+        
+    </style>
+</section>
 {% endblock %}

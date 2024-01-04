@@ -115,12 +115,21 @@
   margin-left: 10px;
   transition: all 0.3s ease-out;
 }
-.wrapper .button:nth-child(1) span{
-  color: #E1306C;
+.wrapper .button:nth-child(1) .icon i {
+  color: #E1306C; /* Color for the first button's icon */
 }
-.wrapper .button:nth-child(2) span{
-  color: #4267B2;
+
+.wrapper .button:nth-child(2) .icon i {
+  color: #4267B2; /* Color for the second button's icon */
 }
+.wrapper .button:nth-child(1):hover .icon i {
+  color: white; /* Color for the first button's icon on hover */
+}
+
+.wrapper .button:nth-child(2):hover .icon i {
+  color: white; /* Color for the second button's icon on hover */
+}
+
 .wrapper .button a:hover {
   text-decoration: none;
 }

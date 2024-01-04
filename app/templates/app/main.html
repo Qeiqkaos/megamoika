@@ -30,55 +30,16 @@
       <div class="container">
         <div class="gallery-container">
           <div class="gallery">
-            <ul><li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/no_contact.jpg' %}" alt='Бесконтактная мойка'>
-                  <figcaption>Бесконтактная мойка</figcaption>
-                </figure>
-              </a>
-            </li>
-            <li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/poli.jpg' %}" alt='Полировка'>
-                  <figcaption>Полировка</figcaption>
-                </figure>
-              </a>
-            </li>
-            <li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/threestep.jpg' %}" alt='Трёхфазная мойка'>
-                  <figcaption>Трёхфазная мойка</figcaption>
-                </figure>
-              </a>
-            </li>
-            <li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/himi.jpg' %}" alt='Химчистка салона'>
-                  <figcaption>Химчистка салона</figcaption>
-                </figure>
-              </a>
-            </li>
-            <li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/express.jpg' %}" alt='Химчистка салона'>
-                  <figcaption>Экспресс-Мойка</figcaption>
-                </figure>
-              </a>
-            </li>
-            <li>
-              <a href="service/">
-                <figure>
-                  <img src="{% static 'app/reagent.jpg' %}" alt='Химчистка салона'>
-                  <figcaption>Удаление Реагента</figcaption>
-                </figure>
-              </a>
-            </li>
-            
+            <ul>{% for service in services %}
+              <li>
+                  <a href="service/">
+                        <figure>
+                          <img src="{% static 'app/'|add:service.image_url %}" alt="{{ service.name }}">
+                          <figcaption>{{ service.name }}</figcaption>
+                      </figure>
+                  </a>
+              </li>
+          {% endfor %}
           </ul>
           </div>
         </div>
