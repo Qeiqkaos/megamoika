@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row mb-4">
             {% for service in services %}
-                <div class="col-md-4 my-1">
+                <div class="col-md-4 my-3">
                     <div class="block card mb-4 box-shadow text-center d-flex flex-column" style="height: 100%;">
                         <div class="block card-header red-header">
                             <h4 class="my-0 font-weight-normal">{{ service.name }}</h4>
@@ -60,23 +60,22 @@
             margin-bottom: 0;
         }
         
-        .container {
+        #service_page .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
         
-        .card {
-            margin: 10px; /* Adjust margin as needed */
+        #service_page  .card {
+            margin: 10px;
         }
         
-        .card-header.red-header {
+        #service_page  .card-header.red-header {
             background: linear-gradient(to right, rgb(245, 42, 27), rgb(222, 62, 62));
             color: white;
         }
         
-        .block {
-            border-radius: 20px;
+        #service_page  .block {
             box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
         }
         

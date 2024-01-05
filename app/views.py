@@ -4,9 +4,10 @@ from .models import Contact, Service, ContactType
 
 
 def index(request):
+    contacts = Contact.objects.all()
     services = Service.objects.all()
     context = {
-        "contact": Contact,
+        "contacts": contacts,
         "services": services,
         "contactType": ContactType,
     }
@@ -19,8 +20,3 @@ def services_view(request):
         "services": services
     }
     return render(request,"app/service.html", context)
-
-
-def contact(request):
-    contacts = Contact.objects.all()
-    return render(request,"app/contact.html",{'contacts': contacts})

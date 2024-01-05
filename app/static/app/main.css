@@ -100,11 +100,11 @@ h1, h2, h3, h4, a, p {
     color: linear-gradient(to right, rgb(244, 67, 54), rgb(183, 28, 28));
 }
 
-#contact_page {
+#firm_page {
     min-height: 100vh;
 }
 
-#contact_page .b_item {
+#firm_page .b_item1 {
     margin-bottom: 30px;
     text-align: center;
     padding: 30px 30px 45px;
@@ -115,7 +115,7 @@ h1, h2, h3, h4, a, p {
     min-height: 300px;
 }
 
-#contact_page .icons {
+#firm_page .icons1 {
     text-align: center;
     width: 55px;
     height: 55px;
@@ -128,7 +128,7 @@ h1, h2, h3, h4, a, p {
     margin-bottom: 10px;
 }
 
-#contact_page .b_item .icons > img {
+#firm_page .b_item1 .icons1 > img {
     width: 35px;
     height: 35px;
 }
@@ -226,16 +226,105 @@ h1, h2, h3, h4, a, p {
     }
 }
 
-#contact_page {
+#firm_page {
     min-height: 100vh;
 }
 
-#contact_page .blocks {
+#firm_page .blocks {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#contact_page .b_item {
+#firm_page .b_item1 {
     margin-bottom: -80px;
 }
+hr {
+    height: 3px;
+    background-image: linear-gradient(90deg, transparent,  rgb(244, 67, 54), transparent);
+    border: 0;
+}
+
+
+#contact_page {
+    padding-top: 0;
+    margin-top: -30px;
+  }
+  
+  #contact_page h1,h2 {
+    margin-bottom: 20px;
+  }
+  #contact_page h2{
+    font-size:24px;
+  }
+  
+  #contact_page > p {
+    margin-bottom: 15px;
+  }
+  
+  #contact_page p:last-child {
+    margin-bottom: 0;
+  }
+  
+  #contact_page #blocks .b_item {
+    margin-bottom:30px;
+    box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    text-align: center;
+    padding: 30px 30px 45px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height:300px;
+}
+
+#contact_page #blocks .b_item .icons {
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    border: 2px solid red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#contact_page #blocks .b_item .icons > img {
+    width: 35px;
+    height: 35px;
+}
+  
+#contact_page #blocks .b_item > b {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  #contact_page #blocks .b_item > p {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+
+  }
+  #contact_page #blocks .b_item > a {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+    text-decoration: none !important;
+    color:#111;
+  }
+  #contact_page #blocks .b_item > p:last-child {
+    margin-bottom: 0;
+  }
+  
+  #contact_page #map {
+    padding: 0;
+    margin-bottom:10px;
+  }
+  
+  #contact_page #map_996592972 {
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    overflow: hidden;
+  }
