@@ -18,6 +18,10 @@ class Service(models.Model):
         except json.JSONDecodeError:
             return []
 
+    def description_as_list(self):
+        return self.get_description_list()
+    
+    
 class Contact(models.Model):
     name = models.CharField(max_length=50, help_text="The name of the Contact")
     phone_numbers = models.JSONField(null=True, blank=True)

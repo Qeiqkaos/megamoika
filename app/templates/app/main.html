@@ -22,34 +22,61 @@
   </div>
 </header>
 </section>
-  <section id="service_page">
-    <div class="pricing-header py-3 mx-auto text-center">
+<section id="service_page">
+  <div class="pricing-header py-3 mx-auto text-center">
       <h1 class="text-white display-4">Наши Услуги</h1>
-    </div>
-    <div class="options">
+  </div>
+  <div class="options">
       <div class="container">
-        <div class="gallery-container">
-          <div class="gallery">
-            <ul>{% for service in services %}
-              <li>
-                  <a href="service/">
-                        <figure>
-                          <img src="{% static 'app/'|add:service.image_url %}" alt="{{ service.name }}">
-                          <figcaption>{{ service.name }}</figcaption>
-                      </figure>
-                  </a>
-              </li>
-          {% endfor %}
-          </ul>
+          <div class="gallery-container">
+              <div class="gallery">
+                  <ul>
+                      {% for service in services %}
+                          <li class="service-item" data-index="{{ forloop.counter0 }}">
+                              <a href="#" data-toggle="modal" data-target="#serviceModal{{ service.pk }}">
+                                  <figure>
+                                      <img src="{% static 'app/'|add:service.image_url %}" alt="{{ service.name }}">
+                                      <figcaption>{{ service.name }}</figcaption>
+                                  </figure>
+                              </a>
+                          </li>
+                      {% endfor %}
+                  </ul>
+              </div>
           </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center" style="margin:20px;">
-          <a href="service/"><button type="button" class="start button2">Подробнее</button></a>
-        </div>
+          <div class="d-flex align-items-center justify-content-center" style="margin:20px;">
+              <a href="#"><button type="button" class="start button2">Подробнее</button></a>
+          </div>
       </div>
+  </div>
+
+  {% for service in services %}
+    <div class="modal fade" id="serviceModal{{ service.pk }}" tabindex="-1" role="dialog"
+        aria-labelledby="serviceModalLabel{{ service.pk }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="row">
+                      <div class="col-md-6 p-0">
+                        <img src="{% static 'app/'|add:service.image_url %}" alt="{{ service.name }}"
+                            class="img-fluid" style="height: 100%; width: auto;">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                      <div>
+                          <h4 class="modal-title">{{ service.name }}</h5>
+                          {% for description_item in service.get_description_list %}
+                              <p class="description_item">{{ description_item }}</p>
+                          {% endfor %}
+                      </div>
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-  
+{% endfor %}
+
+</section>
 
   <section id="firm_page">
     <div class="container">

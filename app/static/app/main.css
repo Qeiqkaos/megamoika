@@ -225,6 +225,9 @@ h1, h2, h3, h4, a, p {
         transform: scale(1.2);
     }
 }
+.modal-title{
+    margin-bottom:20px;
+}
 
 #firm_page {
     min-height: 100vh;
