@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.serializers import serialize
-from .models import Contact, Service, ContactType
+from .models import Contact, Service, ContactType, Advantage
 import json
 
 
@@ -8,7 +8,7 @@ import json
 def index(request):
     contacts = Contact.objects.all()
     services = Service.objects.all()
-    
+    advantages = Advantage.objects.all()
     # Serialize Service objects to JSON
     services_json = serialize('json', services)
 
@@ -17,6 +17,7 @@ def index(request):
         "services": services,
         "services_json": json.dumps(services_json),
         "contactType": ContactType,
+        "advantages": advantages,
     }
     return render(request, "app/main.html", context)
 

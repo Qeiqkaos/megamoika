@@ -152,6 +152,113 @@
   color: white;
   margin:10px;
 }
+#side_nav .wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#side_nav #sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+#side_nav #sidebar.active {
+  margin-left: -250px;
+}
+
+#side_nav #sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#side_nav #sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#side_nav #sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#side_nav #sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#side_nav #sidebar ul li a:hover {
+  color: #7386D5;
+  background: #fff;
+}
+
+#side_nav #sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+#side_nav a[data-toggle="collapse"] {
+  position: relative;
+}
+
+#side_nav .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+#side_nav ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
+#side_nav ul.CTAs {
+  padding: 20px;
+}
+
+#side_nav ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#side_nav a.download {
+  background: #fff;
+  color: #7386D5;
+}
+
+#side_nav a.article,
+#side_nav a.article:hover {
+  background: #6d7fcc !important;
+  color: #fff !important;
+}
+#side_nav #content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+  #sidebarCollapse span {
+      display: none;
+  }
+}
 </style>
 </head>
 <body>
@@ -167,13 +274,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link text-white " href="/service">Услуги</a>
+            <a class="nav-link text-white " href="#service_page">Услуги</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white " href="#">Отзывы</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white " href="/contact">Контакты</a>
+            <a class="nav-link text-white " href="#contact_page">Контакты</a>
           </li>
         </ul>
       </div>
@@ -206,10 +310,8 @@
   <section id="footer">
     <footer class="page-footer font-small blue">
       <div class="container text-center py-3">
-        <a class="links" href="/">О компании</a>
-        <a class="links" href="/service">Услуги</a>
-        <a class="links" href="#">Отзывы</a>
-        <a class="links" href="/contact">Контакты</a>
+        <a class="links" href="#service_page">Услуги</a>
+        <a class="links" href="#contact_page">Контакты</a>
         <p class="Business">© 2023 ИП Субанов В. Б.</p>
       </div>
     </footer>

@@ -9,7 +9,8 @@
           "+7 (3012) 43-17-65",
           "+7 (3012) 67-70-15",
           "+7 (9021) 67-70-84"
-        ]
+        ],
+        "image_url": "telephone.png"
       }
     },
     {
@@ -17,7 +18,8 @@
       "pk": 2,
       "fields": {
         "name": "Электронная почта",
-        "email": "mojka.mega@mail.ru"
+        "email": "mojka.mega@mail.ru",
+        "image_url": "email.png"
       }
     },
     {
@@ -25,7 +27,8 @@
       "pk": 3,
       "fields": {
         "name": "Адрес",
-        "address": "г. Улан-Удэ, ул. Сахьяновой, 5а"
+        "address": "г. Улан-Удэ, ул. Сахьяновой, 5а",
+        "image_url": "address.png"
       }
     },
     {
@@ -33,7 +36,8 @@
       "pk": 4,
       "fields": {
         "name": "Режим работы",
-        "working_hours": ["24/7", "Без выходных и праздников"]
+        "working_hours": ["24/7", "Без выходных и праздников"],
+        "image_url": "schedule.png"
       }
     }
   ]

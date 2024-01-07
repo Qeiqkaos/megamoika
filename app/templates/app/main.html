@@ -44,37 +44,46 @@
                   </ul>
               </div>
           </div>
-          <div class="d-flex align-items-center justify-content-center" style="margin:20px;">
-              <a href="#"><button type="button" class="start button2">Подробнее</button></a>
-          </div>
+          <div class="px-3 py-3 pt-md-4 pb-md-4 mx-auto text-center d-flex align-items-center justify-content-center">
+            <h2 class="lead mb-1 text-white" style="max-width: 600px;">
+                А также многие конкретные отдельные услуги по химчистке, мойке, уборке, чистке и многое другое.
+            </h2>
+        </div>
       </div>
   </div>
 
   {% for service in services %}
     <div class="modal fade" id="serviceModal{{ service.pk }}" tabindex="-1" role="dialog"
         aria-labelledby="serviceModalLabel{{ service.pk }}" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body p-0">
-                    <div class="row">
-                      <div class="col-md-6 p-0">
+                    <div class="row m-0">
+                      <div class="col-md-6 p-0 ">
                         <img src="{% static 'app/'|add:service.image_url %}" alt="{{ service.name }}"
-                            class="img-fluid" style="height: 100%; width: auto;">
+                            class="img-fluid" style="width: auto; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="col-md-6 d-flex align-items-center justify-content-center">
-                      <div>
-                          <h4 class="modal-title">{{ service.name }}</h5>
-                          {% for description_item in service.get_description_list %}
-                              <p class="description_item">{{ description_item }}</p>
-                          {% endfor %}
+                    <div class="col-md-6 p-sm-3 d-flex align-items-center justify-content-center">
+                      <div class="overflow-auto"> 
+                          <h1 class="modal-title font-weight-bold text-center text-sm">{{ service.name }}</h1>
+                          <h3 class="text-center text-sm">от {{ service.price }} руб</h3>
+                          <ul class="list-unstyled">
+                              {% for description_item in service.get_description_list %}
+                                  <li class="description_item">
+                                      <span class="dot"><p class="lead text-sm" style="word-wrap: break-word; max-width: 400px;">&#8226; {{ description_item }}</p></span>
+                                  </li>
+                              {% endfor %}
+                          </ul>
                       </div>
                   </div>
+                  
                     </div>
                 </div>
             </div>
         </div>
     </div>
 {% endfor %}
+
 
 </section>
 
@@ -85,61 +94,17 @@
       </div>
       <div class="blocks">
         <div class="row">
+          {% for advantage in advantages %}
           <div class="col-lg-4 col-md-6">
             <div class="b_item1">
               <div class="icons1">
-                <img src="{% static 'app/icons/quality.png' %}" alt="Quality icon"/>
+                <img src="{% static 'app/icons/'|add:advantage.image_url %}" alt="{{ advantage.name }}"/>
               </div>
-              <h2>Лучшие средства
-              </h2>
-              <p>Мы используем только качественную автохимию.</p>
+              <h2>{{advantage.name}}</h2>
+              <p>{{advantage.description}}</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="b_item1">
-              <div class="icons1">
-                <img src="{% static 'app/icons/Scope.png' %}" alt="Scope icon"/>
-              </div>
-              <h2>Внимательность</h2>
-              <p>Вы доверяете свой автомобиль в умелые руки.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="b_item1">
-              <div class="icons1">
-                <img src="{% static 'app/icons/Wrench.png' %}" alt="Wrench icon"/>
-              </div>
-              <h2>Оборудование</h2>
-              <p>Мы используем только современное оборудование.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="b_item1">
-              <div class="icons1">
-                <img src="{% static 'app/icons/good.png' %}" alt="Wrench icon"/>
-              </div>
-              <h2>Гарантия качества</h2>
-              <p>Мы предоставляем исключительно высококачественные услуги.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="b_item1">
-              <div class="icons1">
-                <img src="{% static 'app/icons/time.png' %}" alt="Wrench icon"/>
-              </div>
-              <h2>Скорость обслуживания</h2>
-              <p>Мы гарантируем быстрое и эффективное обслуживание вашего автомобиля без потери качества.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="b_item1">
-              <div class="icons1">
-                <img src="{% static 'app/icons/schedule.png' %}" alt="Wrench icon"/>
-              </div>
-              <h2>Гибкий график работы</h2>
-              <p>Мы работаем 24 на 7, без выходных и праздников.</p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -152,58 +117,57 @@
         <p class="lead">С нами можно связаться через номер телефона, электронную почту, или через соц. сети</p>
       </div>
     </div>
-  
+    
     <section id="blocks">
       <div class="container">
           <div class="row">
-              {% for contact in contacts %}
-                  <div class="col-lg-3 col-md-6">
-                      <div class="b_item">
-                          <div class="icons">
-                              {% if contact.name == 'Телефоны' %}
-                                  <img src="{% static 'app/icons/telephone.png' %}" alt="Telephone icon"/>
-                              {% elif contact.name == 'Электронная почта' %}
-                                  <img src="{% static 'app/icons/email.png' %}" alt="Email icon"/>
-                              {% elif contact.name == 'Адрес' %}
-                                  <img src="{% static 'app/icons/address.png' %}" alt="Address icon"/>
-                              {% elif contact.name == 'Режим работы' %}
-                                  <img src="{% static 'app/icons/schedule.png' %}" alt="Time icon"/>
-                              {% endif %}
+              <div class="col-lg-6">
+                  <div class="row">
+                      {% for contact in contacts %}
+                          <div class="col-md-6">
+                              <div class="b_item">
+                                  <div class="icons">
+                                      <img src="{% static 'app/icons/'|add:contact.image_url %}" alt="{{ contact.name }}" />
+                                  </div>
+                                  <b>{{ contact.name }}</b>
+                                  {% if contact.name == 'Телефоны' %}
+                                      {% for phone_number in contact.phone_numbers %}
+                                          <a href="tel:{{ phone_number }}">{{ phone_number }}</a>
+                                      {% endfor %}
+                                  {% elif contact.name == 'Электронная почта' %}
+                                      <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                                  {% elif contact.name == 'Адрес' %}
+                                      <p>{{ contact.address }}</p>
+                                  {% elif contact.name == 'Режим работы' %}
+                                      {% for hours in contact.working_hours %}
+                                          <p>{{ hours }}</p>
+                                      {% endfor %}
+                                  {% endif %}
+                              </div>
                           </div>
-                          <b>{{ contact.name }}</b>
-                          {% if contact.name == 'Телефоны' %}
-                              {% for phone_number in contact.phone_numbers %}
-                                  <a href="tel:{{ phone_number }}">{{ phone_number }}</a>
-                              {% endfor %}
-                          {% elif contact.name == 'Электронная почта' %}
-                              <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
-                          {% elif contact.name == 'Адрес' %}
-                              <p>{{ contact.address }}</p>
-                          {% elif contact.name == 'Режим работы' %}
-                              {% for hours in contact.working_hours %}
-                                  <p>{{ hours }}</p>
-                              {% endfor %}
-                          {% endif %}
+                      {% endfor %}
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <section id="location">
+                      <div class="container">
+                          <div class="wrapper_map">
+                          <iframe 
+                          id="map_996592972" 
+                          frameborder="0" 
+                          width="100%" 
+                          height="270px" 
+                          sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation">
+                        </iframe>
+                        <script type="text/javascript">(function(e,t){var r=document.getElementById(e);r.contentWindow.document.open(),r.contentWindow.document.write(atob(t)),r.contentWindow.document.close()})("map_996592972", "PGJvZHk+PHN0eWxlPgogICAgICAgIGh0bWwsIGJvZHkgewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgfQogICAgICAgIGh0bWwsIGJvZHksICNtYXAgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIH0KICAgICAgICAuYnVsbGV0LW1hcmtlciB7CiAgICAgICAgICAgIHdpZHRoOiAyMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDIwcHg7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC4yKTsKICAgICAgICAgICAgYm9yZGVyOiA0cHggc29saWQgIzAyODFmMjsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KICAgICAgICAucGVybWFuZW50LXRvb2x0aXAgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICAgICAgICBjb2xvcjogIzI2MjYyNjsKICAgICAgICB9CiAgICAgICAgLnBlcm1hbmVudC10b29sdGlwOmJlZm9yZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7CiAgICAgICAgfQogICAgICAgIC5kZy1wb3B1cF9oaWRkZW5fdHJ1ZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICAgIH0KICAgICAgICAubGVhZmxldC1jb250YWluZXIgLmxlYWZsZXQtcG9wdXAgLmxlYWZsZXQtcG9wdXAtY2xvc2UtYnV0dG9uIHsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICByaWdodDogMDsKICAgICAgICAgICAgd2lkdGg6IDIwcHg7CiAgICAgICAgICAgIGhlaWdodDogMjBweDsKICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4OwogICAgICAgICAgICBsaW5lLWhlaWdodDogMTsKICAgICAgICB9CiAgICA8L3N0eWxlPjxkaXYgaWQ9Im1hcCI+PC9kaXY+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9tYXBzLmFwaS4yZ2lzLnJ1LzIuMC9sb2FkZXIuanM/cGtnPWZ1bGwmYW1wO3NraW49bGlnaHQiPjwvc2NyaXB0PjxzY3JpcHQ+KGZ1bmN0aW9uKGUpe3ZhciB0PUpTT04ucGFyc2UoZSkscj10Lm9yZGVyZWRHZW9tZXRyaWVzLG49dC5tYXBQb3NpdGlvbixhPXQuaXNXaGVlbFpvb21FbmFibGVkO2Z1bmN0aW9uIG8oZSl7cmV0dXJuIGRlY29kZVVSSUNvbXBvbmVudChhdG9iKGUpLnNwbGl0KCIiKS5tYXAoZnVuY3Rpb24oZSl7cmV0dXJuIiUiKygiMDAiK2UuY2hhckNvZGVBdCgwKS50b1N0cmluZygxNikpLnNsaWNlKC0yKX0pLmpvaW4oIiIpKX1ERy50aGVuKGZ1bmN0aW9uKCl7dmFyIGU9REcubWFwKCJtYXAiLHtjZW50ZXI6W24ubGF0LG4ubG9uXSx6b29tOm4uem9vbSxzY3JvbGxXaGVlbFpvb206YSx6b29tQ29udHJvbDohYX0pO0RHLmdlb0pTT04ocix7c3R5bGU6ZnVuY3Rpb24oZSl7dmFyIHQscixuLGEsbztyZXR1cm57ZmlsbENvbG9yOm51bGw9PT0odD1lKXx8dm9pZCAwPT09dD92b2lkIDA6dC5wcm9wZXJ0aWVzLmZpbGxDb2xvcixmaWxsT3BhY2l0eTpudWxsPT09KHI9ZSl8fHZvaWQgMD09PXI/dm9pZCAwOnIucHJvcGVydGllcy5maWxsT3BhY2l0eSxjb2xvcjpudWxsPT09KG49ZSl8fHZvaWQgMD09PW4/dm9pZCAwOm4ucHJvcGVydGllcy5zdHJva2VDb2xvcix3ZWlnaHQ6bnVsbD09PShhPWUpfHx2b2lkIDA9PT1hP3ZvaWQgMDphLnByb3BlcnRpZXMuc3Ryb2tlV2lkdGgsb3BhY2l0eTpudWxsPT09KG89ZSl8fHZvaWQgMD09PW8/dm9pZCAwOm8ucHJvcGVydGllcy5zdHJva2VPcGFjaXR5fX0scG9pbnRUb0xheWVyOmZ1bmN0aW9uKGUsdCl7cmV0dXJuInJhZGl1cyJpbiBlLnByb3BlcnRpZXM/REcuY2lyY2xlKHQsZS5wcm9wZXJ0aWVzLnJhZGl1cyk6REcubWFya2VyKHQse2ljb246ZnVuY3Rpb24oZSl7cmV0dXJuIERHLmRpdkljb24oe2h0bWw6IjxkaXYgY2xhc3M9J2J1bGxldC1tYXJrZXInIHN0eWxlPSdib3JkZXItY29sb3I6ICIrZSsiOyc+PC9kaXY+IixjbGFzc05hbWU6Im92ZXJyaWRlLWRlZmF1bHQiLGljb25TaXplOlsyMCwyMF0saWNvbkFuY2hvcjpbMTAsMTBdfSl9KGUucHJvcGVydGllcy5jb2xvcil9KX0sb25FYWNoRmVhdHVyZTpmdW5jdGlvbihlLHQpe2UucHJvcGVydGllcy5kZXNjcmlwdGlvbiYmdC5iaW5kUG9wdXAobyhlLnByb3BlcnRpZXMuZGVzY3JpcHRpb24pLHtjbG9zZUJ1dHRvbjohMCxjbG9zZU9uRXNjYXBlS2V5OiEwfSksZS5wcm9wZXJ0aWVzLnRpdGxlJiZ0LmJpbmRUb29sdGlwKG8oZS5wcm9wZXJ0aWVzLnRpdGxlKSx7cGVybWFuZW50OiEwLG9wYWNpdHk6MSxjbGFzc05hbWU6InBlcm1hbmVudC10b29sdGlwIn0pfX0pLmFkZFRvKGUpfSl9KSgneyJvcmRlcmVkR2VvbWV0cmllcyI6W3sidHlwZSI6IkZlYXR1cmUiLCJwcm9wZXJ0aWVzIjp7ImNvbG9yIjoiIzAwMDAwMCIsInRpdGxlIjoiMEp6UXRkQ3owTERRdk5DKzBMblF1dEN3IiwiZGVzY3JpcHRpb24iOiIiLCJ6SW5kZXgiOjEwMDAwMDAwMDB9LCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEwNy42MjY4OTgsNTEuODE2NDI4XX0sImlkIjoxMTgwfV0sIm1hcFBvc2l0aW9uIjp7ImxhdCI6NTEuODE2NDg4MDY5NzA1NzksImxvbiI6MTA3LjYyNjY3MzAwOTU0OTI2LCJ6b29tIjoxN30sImlzV2hlZWxab29tRW5hYmxlZCI6dHJ1ZX0nKTwvc2NyaXB0PjxzY3JpcHQgYXN5bmM9IiIgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtMTU4ODY2MTY4LTEiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4oZnVuY3Rpb24oZSl7ZnVuY3Rpb24gdCgpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyl9d2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXSx0KCJqcyIsbmV3IERhdGUpLHQoImNvbmZpZyIsZSksd2luZG93Lmd0YWc9dH0pKCdVQS0xNTg4NjYxNjgtMScpPC9zY3JpcHQ+PC9ib2R5Pg==")</script>
                       </div>
                   </div>
-              {% endfor %}
+              </section>
+            </div>
           </div>
       </div>
-    </section>
-    <section id="location">
-        <div class="container">
-            <div class="wrapper_map">
-                <iframe 
-                id="map_996592972" 
-                frameborder="0" 
-                width="100%" 
-                height="270px" 
-                sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation">
-              </iframe>
-              <script type="text/javascript">(function(e,t){var r=document.getElementById(e);r.contentWindow.document.open(),r.contentWindow.document.write(atob(t)),r.contentWindow.document.close()})("map_996592972", "PGJvZHk+PHN0eWxlPgogICAgICAgIGh0bWwsIGJvZHkgewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgfQogICAgICAgIGh0bWwsIGJvZHksICNtYXAgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIH0KICAgICAgICAuYnVsbGV0LW1hcmtlciB7CiAgICAgICAgICAgIHdpZHRoOiAyMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDIwcHg7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC4yKTsKICAgICAgICAgICAgYm9yZGVyOiA0cHggc29saWQgIzAyODFmMjsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KICAgICAgICAucGVybWFuZW50LXRvb2x0aXAgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICAgICAgICBjb2xvcjogIzI2MjYyNjsKICAgICAgICB9CiAgICAgICAgLnBlcm1hbmVudC10b29sdGlwOmJlZm9yZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7CiAgICAgICAgfQogICAgICAgIC5kZy1wb3B1cF9oaWRkZW5fdHJ1ZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICAgIH0KICAgICAgICAubGVhZmxldC1jb250YWluZXIgLmxlYWZsZXQtcG9wdXAgLmxlYWZsZXQtcG9wdXAtY2xvc2UtYnV0dG9uIHsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICByaWdodDogMDsKICAgICAgICAgICAgd2lkdGg6IDIwcHg7CiAgICAgICAgICAgIGhlaWdodDogMjBweDsKICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4OwogICAgICAgICAgICBsaW5lLWhlaWdodDogMTsKICAgICAgICB9CiAgICA8L3N0eWxlPjxkaXYgaWQ9Im1hcCI+PC9kaXY+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9tYXBzLmFwaS4yZ2lzLnJ1LzIuMC9sb2FkZXIuanM/cGtnPWZ1bGwmYW1wO3NraW49bGlnaHQiPjwvc2NyaXB0PjxzY3JpcHQ+KGZ1bmN0aW9uKGUpe3ZhciB0PUpTT04ucGFyc2UoZSkscj10Lm9yZGVyZWRHZW9tZXRyaWVzLG49dC5tYXBQb3NpdGlvbixhPXQuaXNXaGVlbFpvb21FbmFibGVkO2Z1bmN0aW9uIG8oZSl7cmV0dXJuIGRlY29kZVVSSUNvbXBvbmVudChhdG9iKGUpLnNwbGl0KCIiKS5tYXAoZnVuY3Rpb24oZSl7cmV0dXJuIiUiKygiMDAiK2UuY2hhckNvZGVBdCgwKS50b1N0cmluZygxNikpLnNsaWNlKC0yKX0pLmpvaW4oIiIpKX1ERy50aGVuKGZ1bmN0aW9uKCl7dmFyIGU9REcubWFwKCJtYXAiLHtjZW50ZXI6W24ubGF0LG4ubG9uXSx6b29tOm4uem9vbSxzY3JvbGxXaGVlbFpvb206YSx6b29tQ29udHJvbDohYX0pO0RHLmdlb0pTT04ocix7c3R5bGU6ZnVuY3Rpb24oZSl7dmFyIHQscixuLGEsbztyZXR1cm57ZmlsbENvbG9yOm51bGw9PT0odD1lKXx8dm9pZCAwPT09dD92b2lkIDA6dC5wcm9wZXJ0aWVzLmZpbGxDb2xvcixmaWxsT3BhY2l0eTpudWxsPT09KHI9ZSl8fHZvaWQgMD09PXI/dm9pZCAwOnIucHJvcGVydGllcy5maWxsT3BhY2l0eSxjb2xvcjpudWxsPT09KG49ZSl8fHZvaWQgMD09PW4/dm9pZCAwOm4ucHJvcGVydGllcy5zdHJva2VDb2xvcix3ZWlnaHQ6bnVsbD09PShhPWUpfHx2b2lkIDA9PT1hP3ZvaWQgMDphLnByb3BlcnRpZXMuc3Ryb2tlV2lkdGgsb3BhY2l0eTpudWxsPT09KG89ZSl8fHZvaWQgMD09PW8/dm9pZCAwOm8ucHJvcGVydGllcy5zdHJva2VPcGFjaXR5fX0scG9pbnRUb0xheWVyOmZ1bmN0aW9uKGUsdCl7cmV0dXJuInJhZGl1cyJpbiBlLnByb3BlcnRpZXM/REcuY2lyY2xlKHQsZS5wcm9wZXJ0aWVzLnJhZGl1cyk6REcubWFya2VyKHQse2ljb246ZnVuY3Rpb24oZSl7cmV0dXJuIERHLmRpdkljb24oe2h0bWw6IjxkaXYgY2xhc3M9J2J1bGxldC1tYXJrZXInIHN0eWxlPSdib3JkZXItY29sb3I6ICIrZSsiOyc+PC9kaXY+IixjbGFzc05hbWU6Im92ZXJyaWRlLWRlZmF1bHQiLGljb25TaXplOlsyMCwyMF0saWNvbkFuY2hvcjpbMTAsMTBdfSl9KGUucHJvcGVydGllcy5jb2xvcil9KX0sb25FYWNoRmVhdHVyZTpmdW5jdGlvbihlLHQpe2UucHJvcGVydGllcy5kZXNjcmlwdGlvbiYmdC5iaW5kUG9wdXAobyhlLnByb3BlcnRpZXMuZGVzY3JpcHRpb24pLHtjbG9zZUJ1dHRvbjohMCxjbG9zZU9uRXNjYXBlS2V5OiEwfSksZS5wcm9wZXJ0aWVzLnRpdGxlJiZ0LmJpbmRUb29sdGlwKG8oZS5wcm9wZXJ0aWVzLnRpdGxlKSx7cGVybWFuZW50OiEwLG9wYWNpdHk6MSxjbGFzc05hbWU6InBlcm1hbmVudC10b29sdGlwIn0pfX0pLmFkZFRvKGUpfSl9KSgneyJvcmRlcmVkR2VvbWV0cmllcyI6W3sidHlwZSI6IkZlYXR1cmUiLCJwcm9wZXJ0aWVzIjp7ImNvbG9yIjoiIzAwMDAwMCIsInRpdGxlIjoiMEp6UXRkQ3owTERRdk5DKzBMblF1dEN3IiwiZGVzY3JpcHRpb24iOiIiLCJ6SW5kZXgiOjEwMDAwMDAwMDB9LCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzEwNy42MjY4OTgsNTEuODE2NDI4XX0sImlkIjoxMTgwfV0sIm1hcFBvc2l0aW9uIjp7ImxhdCI6NTEuODE2NDg4MDY5NzA1NzksImxvbiI6MTA3LjYyNjY3MzAwOTU0OTI2LCJ6b29tIjoxN30sImlzV2hlZWxab29tRW5hYmxlZCI6dHJ1ZX0nKTwvc2NyaXB0PjxzY3JpcHQgYXN5bmM9IiIgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtMTU4ODY2MTY4LTEiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4oZnVuY3Rpb24oZSl7ZnVuY3Rpb24gdCgpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyl9d2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXSx0KCJqcyIsbmV3IERhdGUpLHQoImNvbmZpZyIsZSksd2luZG93Lmd0YWc9dH0pKCdVQS0xNTg4NjYxNjgtMScpPC9zY3JpcHQ+PC9ib2R5Pg==")</script>
-            </div>
-        </div>
-    </section>
+    </section>  
+    
   </section>
   {% endblock %}
   {% block footer %}

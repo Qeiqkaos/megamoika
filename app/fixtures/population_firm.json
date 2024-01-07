@@ -1,0 +1,57 @@
+[
+    {
+      "model": "app.Advantage",
+      "pk": 1,
+      "fields": {
+        "name": "Лучшие средства",
+        "description": "Мы используем только качественную автохимию.",
+        "image_url": "quality.png"
+      }
+    },
+    {
+      "model": "app.Advantage",
+      "pk": 2,
+      "fields": {
+        "name": "Внимательность",
+        "description": "Вы доверяете свой автомобиль в умелые руки.",
+        "image_url": "Scope.png"
+      }
+    },
+    {
+      "model": "app.Advantage",
+      "pk": 3,
+      "fields": {
+        "name": "Оборудование",
+        "description": "Мы используем только современное оборудование.",
+        "image_url": "Wrench.png"
+      }
+    },
+    {
+      "model": "app.Advantage",
+      "pk": 4,
+      "fields": {
+        "name": "Гарантия качества",
+        "description": "Мы предоставляем исключительно высококачественные услуги.",
+        "image_url": "good.png"
+      }
+    },
+    {
+        "model": "app.Advantage",
+        "pk": 5,
+        "fields": {
+            "name": "Скорость обслуживания",
+            "description": "Мы гарантируем быстрое и эффективное обслуживание вашего автомобиля без потери качества.",
+            "image_url": "time.png"
+          }
+      },
+      {
+        "model": "app.Advantage",
+        "pk": 6,
+        "fields": {
+            "name": "Гибкий график работы",
+            "description": "Мы работаем 24 на 7, без выходных и праздников.",
+            "image_url": "schedule.png"
+          }
+      }
+  ]
+  

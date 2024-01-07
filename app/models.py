@@ -28,6 +28,7 @@ class Contact(models.Model):
     email = models.EmailField(blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     working_hours = models.JSONField(null=True, blank=True)
+    image_url = models.URLField(help_text="URL of the Contact's image",default='default-image.jpg')
 
     def __str__(self):
         return self.name
@@ -50,3 +51,11 @@ class ContactType(models.Model):
     email = models.EmailField(blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     working_hours = models.JSONField(null=True, blank=True)
+
+class Advantage(models.Model):
+    name = models.CharField(max_length=50, help_text="The name of the Advantage")
+    description = models.TextField(max_length=50, help_text="The Advantage's description.")
+    image_url = models.URLField(help_text="URL of the Service's image",default='default-image.jpg')
+
+    def __str__(self):
+        return self.name
