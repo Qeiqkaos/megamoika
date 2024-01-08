@@ -6,6 +6,9 @@ h1, h2, h3, h4, a, p {
     font-family: "Gilroy-regular", sans-serif;
 }
 
+p{
+    color: black;
+}
 .start {
     padding: 17px 40px;
     border-radius: 50px;
@@ -228,7 +231,6 @@ h1, h2, h3, h4, a, p {
 #firm_page {
     min-height: 100vh;
 }
-
 #firm_page .blocks {
     display: flex;
     justify-content: center;
@@ -243,5 +245,73 @@ hr {
     background-image: linear-gradient(90deg, transparent,  rgb(244, 67, 54), transparent);
     border: 0;
 }
+#contact_page{
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #212529;
+    padding-top: 50px;
+
+}
+#contact_page h1,
+#contact_page h3,
+#contact_page p {
+    color: white;
+}
+#blocks .b_item {
+        margin-bottom: 30px;
+        box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    text-align: center;
+    padding: 30px 30px 45px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+}
 
 
+#blocks .b_item .icons {
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#blocks .b_item .icons > img {
+    width: 35px;
+    height: 35px;
+    filter: invert(100%);
+}
+
+  #blocks .b_item > p {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 0px;
+
+  }
+  #blocks .b_item > a {
+    display: block;
+    font-size: 14px;
+    margin-bottom: -10px;
+    text-decoration: none !important;
+    color:#111;
+  }
+  #blocks .b_item > p:last-child {
+    margin-bottom: 0;
+  }
+  #location .container {
+    padding-bottom:30px;
+    margin-bottom: -30px;
+}
+  .wrapper_map_right {
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
+    overflow: hidden;
+}

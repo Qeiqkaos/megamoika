@@ -75,14 +75,15 @@
   float: left;
   margin: 0 5px;
   overflow: hidden;
-  background: #fff;
+  background: #212529;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 6px rgba(179, 179, 179, 0.3);
   transition: all 0.3s ease-out;
 }
 .wrapper .button:hover{
   width: 200px;
+  background: white;
 }
 .wrapper .button .icon{
   display: inline-block;
@@ -289,24 +290,6 @@ a[aria-expanded="true"] {
         {% endblock %}
         
   {% block footer %}
-        <section id="socials">
-          <div class="container">
-            <div class="wrapper">
-              <div class="button">
-                <a href="https://www.instagram.com/megamoyka03/">
-                 <div class="icon">
-                    <i class="fab fa-instagram"></i>
-                 </div><span>Инстаграм</span>
-              </a></div>
-              <div class="button">
-                 <a href="https://vk.com/megamoyka03">
-                 <div class="icon">
-                    <i class="fab fa-vk"></i>
-                 </div><span>ВК</span>
-              </a></div>
-            </div>
-          </div>
-        </section>
   <section id="footer">
     <footer class="page-footer font-small blue">
       <div class="container text-center py-3">
