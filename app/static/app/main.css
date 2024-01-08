@@ -248,14 +248,8 @@ hr {
 #contact_page{
     min-height: 100vh;
     overflow: hidden;
-    background-color: #212529;
     padding-top: 50px;
 
-}
-#contact_page h1,
-#contact_page h3,
-#contact_page p {
-    color: white;
 }
 #blocks .b_item {
         margin-bottom: 30px;
@@ -274,7 +268,7 @@ hr {
     text-align: center;
     width: 55px;
     height: 55px;
-    border: 2px solid white;
+    border: 2px solid lightgray;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -286,7 +280,6 @@ hr {
 #blocks .b_item .icons > img {
     width: 35px;
     height: 35px;
-    filter: invert(100%);
 }
 
   #blocks .b_item > p {
