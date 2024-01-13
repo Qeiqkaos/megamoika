@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Gilroy-Regular";
+    src: url("fonts/Gilroy-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("fonts/Gilroy-bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Gilroy-Heavy";
+    src: url("fonts/Gilroy-heavy.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Gilroy-Medium";
+    src: url("fonts/Gilroy-semibold.ttf") format("truetype");
+}
