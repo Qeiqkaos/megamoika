@@ -19,8 +19,8 @@
         "dest": "megamoika/wsgi.py"
       },
       {
-        "src": "app/static/app/(.*)",
-        "dest": "app/static/app/$1"
+        "src": "/static/app/(.*)",
+        "dest": "/static/app/$1"
       }
     ]
   }
